@@ -24,7 +24,7 @@ The configuration files are read in the following order:
   04. ~/.zprofile
   05. /etc/zshrc
   06. ~/.zshrc
-  07. ~/.zpreztorc
+  07. ~/zpreztorc
   08. /etc/zlogin
   09. ~/.zlogin
   10. ~/.zlogout
