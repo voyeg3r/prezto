@@ -15,12 +15,17 @@ version is 4.3.17.
 
         zsh
 
+        DOTDIR~/.dotfiles
+
   2. Clone the repository:
 
-        git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/zprezto"
+        git clone --recursive https://github.com/voyeg3r/prezto "${ZDOTDIR:-$HOME}/zprezto"
+
 
   3. Create a new Zsh configuration by copying the Zsh configuration files
      provided:
+
+        OBS: use zsh as shell during this action
 
         setopt EXTENDED_GLOB
         for rcfile in "${ZDOTDIR:-$HOME}"/zprezto/runcoms/^README.md(.N); do
