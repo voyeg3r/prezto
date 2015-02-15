@@ -62,6 +62,15 @@ alias v='f -t -e vim -b viminfo'
 alias o='a -e xdg-open' # quick opening files with xdg-open
 alias _!='fc -e "sed -i -e \"s/^/sudo /\""' # sudo last command
 
+# this alias depends on prezto's archive utility
+alias x='unarchive'
+
+# cd by .. or ... or ... or mv file ..../.
+alias '..'='cd ..'
+alias -g ...='../..'
+alias -g ....='../../..'
+alias -g .....='../../../..'
+
 # Listen to Air Traffic Control, used to be scripts.
 alias GIG='mplayer http://rio.radioetvweb.com.br:8246'
 alias GRU='mplayer http://rio.radioetvweb.com.br:8298'
@@ -96,7 +105,7 @@ alias shell='echo ${SHELL:t}'
 alias lvim="vim -c \"normal '0\""
 alias vnew='cd && vim */**(.om[1])'
 alias ls='ls --color'
-alias path='echo $PATH | tr ":" "\n"'
+alias path="echo ${PATH//:/$'\n'}"
 alias ssh='ssh -C'
 alias scp='scp -r'
 alias less='less -r'
