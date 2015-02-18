@@ -19,6 +19,8 @@ eval "$(fasd --init auto)"
 cdpath=(. .. ~/bin ~/docs ~/docs/img ~/tmp)
 path=(~/bin $path)
 
+fpath=(~/.dotfiles/functions $fpath)
+
 # This makes cd=pushd
 setopt AUTO_PUSHD
 
