@@ -15,12 +15,11 @@ version is 4.3.17.
 
         zsh
 
-        DOTDIR~/.dotfiles
+        DOTDIR=~/.dotfiles
 
   2. Clone the repository:
 
-        git clone --recursive https://github.com/voyeg3r/prezto "${ZDOTDIR:-$HOME}/zprezto"
-
+        git clone --recursive git@github.com:voyeg3r/prezto.git "${ZDOTDIR:-$HOME}/zprezto"
 
   3. Create a new Zsh configuration by copying the Zsh configuration files
      provided:
@@ -29,7 +28,7 @@ version is 4.3.17.
 
         setopt EXTENDED_GLOB
         for rcfile in "${ZDOTDIR:-$HOME}"/zprezto/runcoms/^README.md(.N); do
-          ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+          ln -sfvn "$rcfile" "${ZDOTDIR:-$HOME}/${rcfile:t}"
         done
 
   4. Set Zsh as your default shell:
