@@ -13,6 +13,9 @@ fi
 
 # Customize to your needs...
 
+# fasd init
+eval "$(fasd --init auto)"
+
 cdpath=(. .. ~/bin ~/docs ~/docs/img ~/tmp)
 path=(~/bin $path)
 
