@@ -13,6 +13,14 @@ fi
 
 # Customize to your needs...
 
+autoload -U compinit
+compinit
+
+# now pressing Esc-e loads the line history for edit
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '\ee' edit-command-line
+
 # 'ctrl-x r' will complete the 12 last modified (mtime) files/directories
 zle -C newest-files complete-word _generic
 bindkey '^Xr' newest-files
