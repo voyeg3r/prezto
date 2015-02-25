@@ -113,6 +113,7 @@ alias CGH='mplayer http://rio.radioetvweb.com.br:8300'
 alias classic='mplayer http://80.237.154.83:8120'
 # watch aljazeera
 alias alj='rtmpdump -v -r "rtmp://aljazeeraflashlivefs.fplive.net/aljazeeraflashlive-live/aljazeera_eng_med" | mplayer -'
+
 alias lad='ls -d -- .*(/)'				# only show dot-directories
 alias lsa='ls -a -- .*(.)'				# only show dot-files
 alias lsd='ls -d -- *(/)'				  # only show directories
