@@ -91,6 +91,7 @@ zstyle ':prezto:module:pacman' frontend 'yaourt'
 # Auto set to 'off' on dumb terminals.
 # zstyle ':prezto:module:prompt' theme 'agnoster'
  zstyle ':prezto:module:prompt' theme 'paradox'
+# zstyle ':prezto:module:prompt' theme 'clint'
 
 #
 # Ruby

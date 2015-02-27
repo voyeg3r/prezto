@@ -101,6 +101,15 @@ setopt NUMERIC_GLOB_SORT
 # I don't know why I never set this before.
 setopt EXTENDED_GLOB
 
+# allow substituition inside prompt
+setopt PROMPT_SUBST
+
+# show history before executing them
+setopt HIST_VERIFY
+
+# sort things like log_001.txt log_002.txt log_009.txt
+setopt NUMERICGLOBSORT
+
 ########### aliases #################
 # aliases para fasd
 alias a='fasd -a' # any
@@ -120,11 +129,15 @@ alias _!='fc -e "sed -i -e \"s/^/sudo /\""' # sudo last command
 # this alias depends on prezto's archive utility
 alias x='unarchive'
 
-# cd by .. or ... or ... or mv file ..../.
-alias '..'='cd ..'
-alias -g ...='../..'
-alias -g ....='../../..'
-alias -g .....='../../../..'
+function rationalize-dot {
+if [[ $LBUFFER = *.. ]]; then
+    LBUFFER+=/..
+else
+    LBUFFER+=.
+fi
+}
+zle -N rationalize-dot
+bindkey . rationalize-dot
 
 # Listen to Air Traffic Control, used to be scripts.
 alias GIG='mplayer http://rio.radioetvweb.com.br:8246'
@@ -152,13 +165,15 @@ alias -g N='*/**(.om[1])'
 alias -g ND='./**/*(/om[1])' # newest directory
 alias -g NF='./**/*(.om[1])' # newest file
 alias -g latest='./**/*(.om[1])' # newest file | also Ctrl-x Ctrl-m
-alias -g DN='>/dev/null' # a /dev/null shortcut
+alias -g NUL="> /dev/null 2>&1"
+alias -g DN="> /dev/null 2>&1"
 alias -g LC='| tr A-Z a-z'
 alias -g UL="| sed 's, ,_,g'"
 alias -g ULC="| tr A-Z a-z | sed 's, ,_,g'"
 alias pnf='mpg123 ./**/*(.om[1])'
 alias install='sudo apt-fast -y install'
 groove-dl-cli(){ python2.7 /usr/share/groove-dl/groove.py "$@" ;}
+man2pdf () { man -w $1 && man -t $1 | ps2pdf - $1.pdf; }
 alias ping='ping -n -c 4 -i 0.2 -W1'
 alias shell='echo ${SHELL:t}'
 alias lvim="vim -c \"normal '0\""
@@ -201,6 +216,9 @@ youtube-mp3 () {
 insert_sudo () { zle beginning-of-line; zle -U "sudo " }
 zle -N insert-sudo insert_sudo
 bindkey "^[s" insert-sudo
+
+# use magic-space
+bindkey ' ' magic-space
 
 # some radios using mplayer
 alias wnyc="mplayer -playlist http://www.wnyc.org/stream/wnyc-fm939/mp3.pls"
