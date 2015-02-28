@@ -60,8 +60,10 @@ cdpath=(. .. ~/Desktop ~/bin ~/docs ~/docs/img ~/tmp)
 path=(~/bin $path)
 
 fpath=(~/.dotfiles/functions $fpath)
+autoload -U ~/.dotfiles/functions/*(:t)
 
 setopt MULTIOS
+setopt MENU_COMPLETE
 
 # This makes cd=pushd
 setopt AUTO_PUSHD
