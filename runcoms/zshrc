@@ -131,6 +131,12 @@ zle -N magic-square-brackets
 zle -N magic-curly-brackets
 zle -N magic-angle-brackets
 
+# ctrl+b/f or ctrl+left/right : move word by word (backward/forward)
+bindkey '^b' backward-word
+bindkey '^f' forward-word
+bindkey '^[[1;5D' backward-word
+bindkey '^[[1;5C' forward-word
+
 ########### aliases #################
 # aliases para fasd
 alias a='fasd -a' # any
