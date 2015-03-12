@@ -11,6 +11,9 @@ if [[ -s "${ZDOTDIR:-$HOME}/zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/zprezto/init.zsh"
 fi
 
+# locar dir in the right side
+RPS1='%B%F{green}(%~)%f%b'
+
 # Customize to your needs...
 
 autoload -U compinit
